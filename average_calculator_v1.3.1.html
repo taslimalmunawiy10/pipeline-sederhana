@@ -1,0 +1,94 @@
+# average_calculator
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Average Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #FFD700
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Average Calculator</h2>
+
+  <label for="numbers">Enter numbers separated by commas:</label>
+  <input type="text" id="numbers" placeholder="e.g., 5, 10, 15">
+
+  <button onclick="calculateAverage()">Calculate Average</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateAverage() {
+      var inputElement = document.getElementById('numbers');
+      var resultElement = document.getElementById('result');
+
+      var numbers = inputElement.value.split(',').map(function (num) {
+        return parseFloat(num.trim());
+      });
+
+      var sum = numbers.reduce(function (total, num) {
+        return total + num;
+      }, 0);
+
+      var average = sum / numbers.length;
+
+      if (!isNaN(average)) {
+        resultElement.textContent = 'Average: ' + average.toFixed(2);
+      } else {
+        resultElement.textContent = 'Please enter valid numbers.';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
